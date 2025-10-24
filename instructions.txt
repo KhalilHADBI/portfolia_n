@@ -1,0 +1,48 @@
+Top ! J’ai déposé un fichier index.html prêt à l’emploi dans le canvas à droite. Il contient :
+
+un design moderne (mode sombre/clair, responsive),
+
+des sections prêtes (Accueil, Projets avec filtres, Compétences, À propos, Contact),
+
+des projets configurables via un petit JSON,
+
+les liens GitHub/LinkedIn/CV à remplacer,
+
+SEO de base + JSON-LD.
+
+Ce que tu fais maintenant (5 min)
+
+Personnalise le contenu
+
+Remplace tongithub, tonlinkedin, l’e-mail, la photo, et mets ton vrai cv_khalil_hadbi.pdf à la racine.
+
+Mets à jour les projets dans le bloc JSON (<script id="projects-data">…</script>).
+
+Publie gratuitement
+
+Crée un dépôt GitHub, ajoute index.html (et ton cv_khalil_hadbi.pdf).
+
+Connecte le dépôt à Netlify ou Vercel (Drag & drop possible si tu ne veux pas Git).
+
+Netlify : “Add new site” → “Deploy manually” → glisser index.html.
+
+Vercel : “New Project” → “Import” depuis GitHub → framework “Other”.
+
+Connecte khalilhadbi.com
+
+Dans Netlify/Vercel : Add Domain → tape khalilhadbi.com.
+
+Ils te donneront les entrées DNS (CNAME/A) à copier-coller chez ton registrar (OVH/Namecheap).
+
+Une fois propagé, ton site répondra sur https://khalilhadbi.com.
+
+Si tu veux, je peux :
+
+remplir les sections avec tes infos exactes (projets, logos, textes),
+
+préparer le dépôt Git (README + structure),
+
+te donner les DNS exacts selon l’hébergeur que tu choisis (Netlify ou Vercel).
+
+Tu me dis : OVH ou Namecheap ? Et Netlify ou Vercel ?
+Je te donne ensuite le pas-à-pas précis + les records à ajouter.
