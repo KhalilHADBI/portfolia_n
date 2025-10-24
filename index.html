@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khalil Hadbi – Data Engineer</title>
+  <meta name="description" content="Portfolio de Khalil Hadbi – Data Engineer & Chef de projet data. Python, GTFS, Power BI, APIs, Docker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Khalil Hadbi – Data Engineer" />
+  <meta property="og:description" content="Projets, compétences et contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/1f2937/ffffff&text=Khalil+Hadbi" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root {
+      --bg: #0b0f18;
+      --surface: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --brand: #0ea5e9;
+      --ring: rgba(14,165,233,.35);
+      --shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+    :root.light {
+      --bg: #f7fafc;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --brand: #0ea5e9;
+      --ring: rgba(14,165,233,.25);
+      --shadow: 0 10px 30px rgba(2,8,23,.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 70% -100px, rgba(14,165,233,.15), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: saturate(150%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+    }
+    nav { display:flex; align-items: center; gap: 18px; padding: 12px 0; }
+    nav .brand { font-weight: 700; letter-spacing: .5px; }
+    nav a { color: var(--muted); text-decoration: none; font-weight: 500; padding: 8px 10px; border-radius: 10px; }
+    nav a:hover { color: var(--text); background: color-mix(in oklab, var(--text) 6%, transparent); }
+    .spacer { flex: 1; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius: 12px; border: 1px solid color-mix(in oklab, var(--brand) 45%, transparent); color: var(--text); background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 20%, transparent), transparent); box-shadow: var(--shadow); cursor: pointer; }
+    .btn:hover { outline: 3px solid var(--ring); }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: center; padding: 56px 0 24px; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding: 6px 10px; border-radius: 999px; border:1px solid color-mix(in oklab, var(--brand) 55%, transparent); color: var(--brand); background: color-mix(in oklab, var(--brand) 12%, transparent); font-weight: 600; font-size: 12px; letter-spacing:.3px; }
+    h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; margin: 14px 0 10px; }
+    .lead { font-size: clamp(16px, 2vw, 20px); color: var(--muted); }
+    .hero-cta { display:flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+    .hero-card { background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 95%, transparent), var(--surface)); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); }
+    .avatar { width: 150px; height: 150px; border-radius: 24px; object-fit: cover; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); box-shadow: var(--shadow); }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    section h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 16px; }
+    .muted { color: var(--muted); }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card { grid-column: span 12; background: var(--surface); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    @media (min-width: 720px) {
+      .card.span-4 { grid-column: span 4; }
+      .card.span-6 { grid-column: span 6; }
+    }
+    .card h3 { margin: 4px 0 8px; font-size: 18px; }
+    .tags { display:flex; flex-wrap: wrap; gap:6px; margin-top: 8px; }
+    .tag { font-size: 12px; padding: 4px 8px; border-radius: 999px; border:1px solid color-mix(in oklab, var(--text) 12%, transparent); color: var(--muted); }
+
+    /* Skills */
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge-chip { padding: 8px 12px; border-radius: 12px; border:1px dashed color-mix(in oklab, var(--text) 16%, transparent); background: color-mix(in oklab, var(--text) 4%, transparent); font-weight: 600; color: var(--text); }
+
+    /* Footer */
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid color-mix(in oklab, var(--text) 8%, transparent); }
+
+    /* Filter */
+    .filters { display:flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .filter-btn { padding: 8px 12px; border-radius: 10px; border:1px solid color-mix(in oklab, var(--text) 10%, transparent); background: color-mix(in oklab, var(--text) 4%, transparent); color: var(--text); cursor:pointer; }
+    .filter-btn[aria-pressed="true"] { outline: 3px solid var(--ring); color: var(--brand); border-color: color-mix(in oklab, var(--brand) 40%, transparent); }
+
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Khalil Hadbi",
+    "jobTitle": "Data Engineer",
+    "url": "https://khalilhadbi.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/tonlinkedin",
+      "https://github.com/tongithub"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">KHALIL HADBI</div>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#contact">Contact</a>
+        <div class="spacer"></div>
+        <button id="themeToggle" class="btn" aria-pressed="false" title="Basculer le thème">🌓<span class="sr-only">Thème</span></button>
+        <a class="btn" href="/cv_khalil_hadbi.pdf" target="_blank" rel="noopener">📄 CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">Disponible • Freelance / CDI</span>
+        <h1>Data Engineer & Chef de projet data</h1>
+        <p class="lead">J'automatise l'extraction, la qualité et la valorisation de données (Python, APIs, Docker) pour des cas <strong>transport public</strong> (GTFS, SIRI, Power BI, Snowflake) et au‑delà.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#contact">✉️ Me contacter</a>
+          <a class="btn" href="#projets">🚀 Voir mes projets</a>
+        </div>
+      </div>
+      <div class="hero-card" style="display:flex; gap:18px; align-items:center;">
+        <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80&auto=format&fit=crop" alt="Portrait de Khalil" />
+        <div>
+          <div class="muted">Basé en Hauts‑de‑France • Ouvert Europe</div>
+          <div style="margin-top:8px; display:flex; gap:10px; flex-wrap: wrap;">
+            <a class="filter-btn" href="https://github.com/tongithub" target="_blank" rel="noopener">GitHub</a>
+            <a class="filter-btn" href="https://www.linkedin.com/in/tonlinkedin" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="filter-btn" href="mailto:contact@khalilhadbi.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets">
+      <h2>Projets sélectionnés</h2>
+      <p class="muted">Quelques réalisations concrètes. Filtre par techno :</p>
+
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="projectsGrid"></div>
+
+      <script id="projects-data" type="application/json">[
+        {
+          "title": "Pipeline GTFS → Excel scolaire",
+          "desc": "Génération automatique d'horaires scolaires avec normalisation >24h, gestion TAD, et géocodage.",
+          "links": [{"label":"Code","href":"https://github.com/tongithub/gtfs2xlssco"}],
+          "tags": ["Python","Pandas","GTFS","Excel","Docker"]
+        },
+        {
+          "title": "Ingestion SIRI-SX + ARA",
+          "desc": "ETL temps réel pour anomalies réseau (SIRI-SX) et remontées terrain, stockage objet OVH + API.",
+          "links": [{"label":"Présentation","href":"#"}],
+          "tags": ["APIs","OVH S3","FastAPI","SQLite","Docker"]
+        },
+        {
+          "title": "Dashboard Power BI – Qualité données",
+          "desc": "Détection d'écarts, suivi des non-conformités et plan d'action.",
+          "links": [{"label":"Demo","href":"#"}],
+          "tags": ["Power BI","DAX","SQL"]
+        },
+        {
+          "title": "Video analytics – cellules compteuses",
+          "desc": "Transcodage FFmpeg, stockage objet, galerie web sécurisée (pré-signed URLs).",
+          "links": [{"label":"Article","href":"#"}],
+          "tags": ["FFmpeg","S3","FastAPI","Docker"]
+        }
+      ]</script>
+    </section>
+
+    <section id="competences">
+      <h2>Compétences</h2>
+      <div class="badges">
+        <span class="badge-chip">Python</span>
+        <span class="badge-chip">Pandas</span>
+        <span class="badge-chip">SQL</span>
+        <span class="badge-chip">APIs</span>
+        <span class="badge-chip">FastAPI</span>
+        <span class="badge-chip">Docker</span>
+        <span class="badge-chip">Power BI</span>
+        <span class="badge-chip">Snowflake</span>
+        <span class="badge-chip">GTFS / SIRI</span>
+        <span class="badge-chip">GCP (BigQuery, Dataflow)</span>
+      </div>
+    </section>
+
+    <section id="a-propos">
+      <h2>À propos</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>Mon approche</h3>
+          <p>Pragmatique, orientée impact. Je construis des pipelines fiables et documentés, avec une attention à la qualité, la sécurité et le coût.</p>
+        </div>
+        <div class="card span-6">
+          <h3>Expérience</h3>
+          <p>2+ ans en ingénierie data pour le transport public (Transdev/Tadao). Pilotage de projets multi‑partenaires (Cityway, SNCF, Equans, EnRoute...).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">Envie de travailler ensemble ? Écrivez‑moi ou ajoutez‑moi sur LinkedIn.</p>
+      <div class="hero-cta">
+        <a class="btn" href="mailto:contact@khalilhadbi.com">✉️ contact@khalilhadbi.com</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/tonlinkedin">🔗 LinkedIn</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Khalil Hadbi — Fait avec ♥. 
+        <span style="float:right">Thème <strong id="themeLabel">sombre</strong></span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // --- Theme toggle with persistence
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') root.classList.add('light');
+    themeLabel.textContent = root.classList.contains('light') ? 'clair' : 'sombre';
+    themeToggle.setAttribute('aria-pressed', root.classList.contains('light'));
+    themeToggle.addEventListener('click', () => {
+      root.classList.toggle('light');
+      const light = root.classList.contains('light');
+      localStorage.setItem('theme', light ? 'light' : 'dark');
+      themeLabel.textContent = light ? 'clair' : 'sombre';
+      themeToggle.setAttribute('aria-pressed', light);
+    });
+
+    // --- Projects rendering + filters
+    const dataEl = document.getElementById('projects-data');
+    const projects = JSON.parse(dataEl.textContent);
+    const grid = document.getElementById('projectsGrid');
+    const filters = document.getElementById('filters');
+
+    // unique tags
+    const tags = [...new Set(projects.flatMap(p => p.tags))].sort();
+    let active = new Set();
+
+    const renderFilters = () => {
+      filters.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'filter-btn';
+      allBtn.textContent = 'Tout';
+      allBtn.onclick = () => { active = new Set(); render(); renderFilters(); };
+      allBtn.setAttribute('aria-pressed', active.size === 0);
+      filters.appendChild(allBtn);
+      tags.forEach(tag => {
+        const b = document.createElement('button');
+        b.className = 'filter-btn';
+        b.textContent = tag;
+        b.setAttribute('aria-pressed', active.has(tag));
+        b.onclick = () => {
+          if (active.has(tag)) active.delete(tag); else active.add(tag);
+          render();
+          renderFilters();
+        };
+        filters.appendChild(b);
+      });
+    };
+
+    const render = () => {
+      grid.innerHTML = '';
+      const filtered = active.size ? projects.filter(p => p.tags.some(t => active.has(t))) : projects;
+      filtered.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card span-6';
+        const title = document.createElement('h3'); title.textContent = p.title; card.appendChild(title);
+        const desc = document.createElement('p'); desc.textContent = p.desc; card.appendChild(desc);
+        const links = document.createElement('p');
+        p.links?.forEach(l => {
+          const a = document.createElement('a'); a.href = l.href; a.textContent = '🔗 ' + l.label; a.target = '_blank'; a.rel = 'noopener';
+          a.style.marginRight = '10px'; a.className = 'btn'; links.appendChild(a);
+        });
+        card.appendChild(links);
+        const tagsWrap = document.createElement('div'); tagsWrap.className = 'tags';
+        p.tags.forEach(t => { const span = document.createElement('span'); span.className = 'tag'; span.textContent = t; tagsWrap.appendChild(span); });
+        card.appendChild(tagsWrap);
+        grid.appendChild(card);
+      });
+    };
+
+    renderFilters();
+    render();
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
