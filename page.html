@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khalil Hadbi – Data Engineer</title>
+
+  <meta name="description" content="Portfolio de Khalil Hadbi – Data Engineer & Chef de projet data. Python, GTFS, Power BI, APIs, Docker." />
+  <meta property="og:title" content="Khalil Hadbi – Data Engineer" />
+  <meta property="og:description" content="Projets, compétences et contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/1f2937/ffffff&text=Khalil+Hadbi" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f18;
+      --surface: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --brand: #0ea5e9;
+      --ring: rgba(14,165,233,.35);
+      --shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+    :root.light {
+      --bg: #f7fafc;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --brand: #0ea5e9;
+      --ring: rgba(14,165,233,.25);
+      --shadow: 0 10px 30px rgba(2,8,23,.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 70% -100px, rgba(14,165,233,.15), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: saturate(150%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+    }
+    nav { display:flex; align-items: center; gap: 10px; padding: 12px 0; flex-wrap: wrap; }
+    nav .brand { font-weight: 700; letter-spacing: .5px; margin-right: 6px; }
+    nav a { color: var(--muted); text-decoration: none; font-weight: 500; padding: 8px 10px; border-radius: 10px; }
+    nav a:hover { color: var(--text); background: color-mix(in oklab, var(--text) 6%, transparent); }
+    .spacer { flex: 1; }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius: 12px;
+      border: 1px solid color-mix(in oklab, var(--brand) 45%, transparent);
+      color: var(--text);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 20%, transparent), transparent);
+      box-shadow: var(--shadow); cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+    }
+    .btn:hover { outline: 3px solid var(--ring); }
+    .btn.small { padding: 8px 12px; border-radius: 10px; box-shadow: none; }
+    .btn.ghost {
+      border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+      background: color-mix(in oklab, var(--text) 4%, transparent);
+      box-shadow: none;
+    }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 36px; align-items: center; padding: 56px 0 24px; }
+    @media (max-width: 880px) { .hero { grid-template-columns: 1fr; } }
+    .badge {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px; border-radius: 999px;
+      border:1px solid color-mix(in oklab, var(--brand) 55%, transparent);
+      color: var(--brand);
+      background: color-mix(in oklab, var(--brand) 12%, transparent);
+      font-weight: 600; font-size: 12px; letter-spacing:.3px;
+    }
+    h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; margin: 14px 0 10px; }
+    .lead { font-size: clamp(16px, 2vw, 20px); color: var(--muted); }
+    .hero-cta { display:flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+    .hero-card {
+      background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 95%, transparent), var(--surface));
+      border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+      border-radius: 18px; padding: 18px; box-shadow: var(--shadow);
+    }
+    .avatar { width: 150px; height: 150px; border-radius: 24px; object-fit: cover; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); box-shadow: var(--shadow); }
+    .muted { color: var(--muted); }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    section h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 16px; }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card { grid-column: span 12; background: var(--surface); border:1px solid color-mix(in oklab, var(--text) 10%, transparent); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    @media (min-width: 720px) {
+      .card.span-4 { grid-column: span 4; }
+      .card.span-6 { grid-column: span 6; }
+    }
+    .card h3 { margin: 4px 0 8px; font-size: 18px; }
+    .tags { display:flex; flex-wrap: wrap; gap:6px; margin-top: 8px; }
+    .tag { font-size: 12px; padding: 4px 8px; border-radius: 999px; border:1px solid color-mix(in oklab, var(--text) 12%, transparent); color: var(--muted); }
+
+    /* Skills */
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge-chip { padding: 8px 12px; border-radius: 12px; border:1px dashed color-mix(in oklab, var(--text) 16%, transparent); background: color-mix(in oklab, var(--text) 4%, transparent); font-weight: 600; color: var(--text); }
+
+    /* Filter */
+    .filters { display:flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .filter-btn { padding: 8px 12px; border-radius: 10px; border:1px solid color-mix(in oklab, var(--text) 10%, transparent); background: color-mix(in oklab, var(--text) 4%, transparent); color: var(--text); cursor:pointer; }
+    .filter-btn[aria-pressed="true"] { outline: 3px solid var(--ring); color: var(--brand); border-color: color-mix(in oklab, var(--brand) 40%, transparent); }
+
+    /* Footer */
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid color-mix(in oklab, var(--text) 8%, transparent); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
+
+  <!-- JSON-LD will be injected/updated by JS (language aware) -->
+  <script id="jsonld" type="application/ld+json"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">KHALIL HADBI</div>
+
+        <a href="#projets" data-i18n="nav_projects">Projets</a>
+        <a href="#competences" data-i18n="nav_skills">Compétences</a>
+        <a href="#a-propos" data-i18n="nav_about">À propos</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+
+        <div class="spacer"></div>
+
+        <button id="langToggle" class="btn" aria-pressed="false" title="Switch language">🌐 <span id="langLabel">FR</span></button>
+        <button id="themeToggle" class="btn" aria-pressed="false" title="Basculer le thème">🌓<span class="sr-only">Thème</span></button>
+
+        <a class="btn" href="/cv_khalil_hadbi.pdf" target="_blank" rel="noopener">📄 <span data-i18n="nav_cv">CV</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge" data-i18n="hero_badge">Disponible • Freelance / CDI</span>
+        <h1 data-i18n="hero_title">Data Engineer & Chef de projet data</h1>
+        <p class="lead" data-i18n="hero_lead">
+          J'automatise l'extraction, la qualité et la valorisation de données (Python, APIs, Docker) pour des cas <strong>transport public</strong> (GTFS, SIRI, Power BI, Snowflake) et au-delà.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="#contact">✉️ <span data-i18n="cta_contact">Me contacter</span></a>
+          <a class="btn ghost" href="#projets">🚀 <span data-i18n="cta_projects">Voir mes projets</span></a>
+        </div>
+      </div>
+
+      <div class="hero-card" style="display:flex; gap:18px; align-items:center;">
+        <!-- ⚠️ conseille: remplace par une image locale /assets/avatar.jpg -->
+        <img class="avatar"
+             src="https://media.licdn.com/dms/image/v2/D4E03AQFfFOAXDRBdmw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718329250495?e=2147483647&v=beta&t=mkHufNRJM-6grK8yZJ8BbSaoMCbwnerqhAK2TWiUbW4"
+             alt="Portrait de Khalil" />
+
+        <div>
+          <div class="muted" data-i18n="hero_location">Basé en Hauts-de-France • Ouvert Europe</div>
+          <div class="muted" style="margin-top:6px" data-i18n="hero_open">
+            Ouvert aux opportunités : France / Europe • Canada • USA (remote / visa sponsorship)
+          </div>
+
+          <div style="margin-top:10px; display:flex; gap:10px; flex-wrap: wrap;">
+            <a class="btn small ghost" href="https://github.com/KhalilHADBI" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn small ghost" href="https://www.linkedin.com/in/khalil-hadbi/?locale=en_US" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn small ghost" href="mailto:khalil.hadbi1999@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets">
+      <h2 data-i18n="projects_title">Projets sélectionnés</h2>
+      <p class="muted" data-i18n="projects_lead">Quelques réalisations concrètes. Filtre par techno :</p>
+
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="projectsGrid"></div>
+
+      <script id="projects-data" type="application/json">[
+        {
+          "title_fr": "Pipeline GTFS → Excel scolaire",
+          "title_en": "GTFS → School Excel pipeline",
+          "desc_fr": "Génération automatique d'horaires scolaires avec normalisation >24h, gestion TAD, et géocodage.",
+          "desc_en": "Automated school timetables generation with >24h normalization, demand-responsive handling, and geocoding.",
+          "links": [{"label_fr":"Code","label_en":"Code","href":"https://github.com/KhalilHADBI"}],
+          "tags": ["Python","Pandas","GTFS","Excel","Docker"]
+        },
+        {
+          "title_fr": "Ingestion SIRI-SX + ARA",
+          "title_en": "SIRI-SX + ARA ingestion",
+          "desc_fr": "ETL temps réel pour anomalies réseau (SIRI-SX) et remontées terrain, stockage objet + API.",
+          "desc_en": "Real-time ETL for service alerts (SIRI-SX) and field reports, object storage + API.",
+          "links": [],
+          "tags": ["APIs","FastAPI","SQLite","Docker"]
+        },
+        {
+          "title_fr": "Dashboard Power BI – Qualité données",
+          "title_en": "Power BI dashboard – Data quality",
+          "desc_fr": "Détection d'écarts, suivi des non-conformités et plan d'action.",
+          "desc_en": "Gap detection, non-compliance monitoring, and action plan tracking.",
+          "links": [],
+          "tags": ["Power BI","DAX","SQL"]
+        },
+        {
+          "title_fr": "Video analytics – cellules compteuses",
+          "title_en": "Video analytics – passenger counting",
+          "desc_fr": "Transcodage FFmpeg, stockage objet, galerie web sécurisée (pré-signed URLs).",
+          "desc_en": "FFmpeg transcoding, object storage, secured web gallery (pre-signed URLs).",
+          "links": [],
+          "tags": ["FFmpeg","S3","FastAPI","Docker"]
+        }
+      ]</script>
+    </section>
+
+    <section id="competences">
+      <h2 data-i18n="skills_title">Compétences</h2>
+      <div class="badges">
+        <span class="badge-chip">Python</span>
+        <span class="badge-chip">Pandas</span>
+        <span class="badge-chip">SQL</span>
+        <span class="badge-chip">APIs</span>
+        <span class="badge-chip">FastAPI</span>
+        <span class="badge-chip">Docker</span>
+        <span class="badge-chip">Power BI</span>
+        <span class="badge-chip">Snowflake</span>
+        <span class="badge-chip">GTFS / SIRI</span>
+        <span class="badge-chip">GCP (BigQuery, Dataflow)</span>
+      </div>
+    </section>
+
+    <section id="a-propos">
+      <h2 data-i18n="about_title">À propos</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3 data-i18n="about_approach_title">Mon approche</h3>
+          <p data-i18n="about_approach_text">
+            Pragmatique, orientée impact. Je construis des pipelines fiables et documentés, avec une attention à la qualité, la sécurité et le coût.
+          </p>
+        </div>
+        <div class="card span-6">
+          <h3 data-i18n="about_exp_title">Expérience</h3>
+          <p data-i18n="about_exp_text">
+            2+ ans en ingénierie data pour le transport public. Pilotage de projets multi-partenaires (Cityway, SNCF, Equans, EnRoute...).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact_title">Contact</h2>
+      <p class="muted" data-i18n="contact_lead">Envie de travailler ensemble ? Écrivez-moi ou ajoutez-moi sur LinkedIn.</p>
+      <div class="hero-cta">
+        <a class="btn" href="mailto:khalil.hadbi1999@gmail.com">✉️ <span data-i18n="contact_email">Me contacter par email</span></a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://www.linkedin.com/in/khalil-hadbi/?locale=en_US">🔗 LinkedIn</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Khalil Hadbi — <span data-i18n="footer_made">Fait avec ♥</span>.
+        <span style="float:right"><span data-i18n="footer_theme">Thème</span> <strong id="themeLabel">sombre</strong></span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ---------------------------
+    // Theme toggle with persistence
+    // ---------------------------
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') root.classList.add('light');
+    themeLabel.textContent = root.classList.contains('light') ? 'clair' : 'sombre';
+    themeToggle.setAttribute('aria-pressed', root.classList.contains('light'));
+
+    themeToggle.addEventListener('click', () => {
+      root.classList.toggle('light');
+      const light = root.classList.contains('light');
+      localStorage.setItem('theme', light ? 'light' : 'dark');
+      themeLabel.textContent = light ? (getLang() === 'en' ? 'light' : 'clair') : (getLang() === 'en' ? 'dark' : 'sombre');
+      themeToggle.setAttribute('aria-pressed', light);
+    });
+
+    // ---------------------------
+    // Language toggle with persistence
+    // ---------------------------
+    const langToggle = document.getElementById('langToggle');
+    const langLabel = document.getElementById('langLabel');
+
+    function getLang() {
+      return localStorage.getItem('lang') || 'fr';
+    }
+
+    const dict = {
+      fr: {
+        nav_projects: "Projets",
+        nav_skills: "Compétences",
+        nav_about: "À propos",
+        nav_contact: "Contact",
+        nav_cv: "CV",
+
+        hero_badge: "Disponible • Freelance / CDI",
+        hero_title: "Data Engineer & Chef de projet data",
+        hero_lead: "J'automatise l'extraction, la qualité et la valorisation de données (Python, APIs, Docker) pour des cas <strong>transport public</strong> (GTFS, SIRI, Power BI, Snowflake) et au-delà.",
+        hero_location: "Basé en Hauts-de-France • Ouvert Europe",
+        hero_open: "Ouvert aux opportunités : France / Europe • Canada • USA (remote / visa sponsorship)",
+
+        cta_contact: "Me contacter",
+        cta_projects: "Voir mes projets",
+
+        projects_title: "Projets sélectionnés",
+        projects_lead: "Quelques réalisations concrètes. Filtre par techno :",
+
+        skills_title: "Compétences",
+
+        about_title: "À propos",
+        about_approach_title: "Mon approche",
+        about_approach_text: "Pragmatique, orientée impact. Je construis des pipelines fiables et documentés, avec une attention à la qualité, la sécurité et le coût.",
+        about_exp_title: "Expérience",
+        about_exp_text: "2+ ans en ingénierie data pour le transport public. Pilotage de projets multi-partenaires (Cityway, SNCF, Equans, EnRoute...).",
+
+        contact_title: "Contact",
+        contact_lead: "Envie de travailler ensemble ? Écrivez-moi ou ajoutez-moi sur LinkedIn.",
+        contact_email: "Me contacter par email",
+
+        footer_made: "Fait avec ♥",
+        footer_theme: "Thème",
+
+        meta_desc: "Portfolio de Khalil Hadbi – Data Engineer & Chef de projet data. Python, GTFS, Power BI, APIs, Docker.",
+        og_desc: "Projets, compétences et contact."
+      },
+      en: {
+        nav_projects: "Projects",
+        nav_skills: "Skills",
+        nav_about: "About",
+        nav_contact: "Contact",
+        nav_cv: "Resume",
+
+        hero_badge: "Available • Freelance / Full-time",
+        hero_title: "Data Engineer & Data Project Lead",
+        hero_lead: "I automate data extraction, quality and analytics (Python, APIs, Docker) for <strong>public transport</strong> use cases (GTFS, SIRI, Power BI, Snowflake) and beyond.",
+        hero_location: "Based in Northern France • Open to Europe",
+        hero_open: "Open to opportunities: France / Europe • Canada • USA (remote / visa sponsorship)",
+
+        cta_contact: "Contact me",
+        cta_projects: "See my projects",
+
+        projects_title: "Selected projects",
+        projects_lead: "A few concrete builds. Filter by tech:",
+
+        skills_title: "Skills",
+
+        about_title: "About",
+        about_approach_title: "How I work",
+        about_approach_text: "Pragmatic and impact-driven. I build reliable, documented pipelines with strong focus on quality, security and cost.",
+        about_exp_title: "Experience",
+        about_exp_text: "2+ years in data engineering for public transport. Leading multi-partner projects (Cityway, SNCF, Equans, EnRoute...).",
+
+        contact_title: "Contact",
+        contact_lead: "Want to work together? Email me or connect on LinkedIn.",
+        contact_email: "Email me",
+
+        footer_made: "Made with ♥",
+        footer_theme: "Theme",
+
+        meta_desc: "Khalil Hadbi portfolio – Data Engineer & Data Project Lead. Python, GTFS, Power BI, APIs, Docker.",
+        og_desc: "Projects, skills and contact."
+      }
+    };
+
+    function setMeta(lang) {
+      // Update meta description + OG description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', dict[lang].meta_desc);
+
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', dict[lang].og_desc);
+
+      // Update <html lang="">
+      document.documentElement.setAttribute('lang', lang);
+
+      // Update JSON-LD
+      const jsonld = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Khalil Hadbi",
+        "jobTitle": "Data Engineer",
+        "url": "https://khalilhadbi.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/khalil-hadbi/?locale=en_US",
+          "https://github.com/KhalilHADBI"
+        ],
+        "knowsAbout": ["Python","SQL","APIs","Docker","Power BI","GTFS","FastAPI"]
+      };
+      document.getElementById('jsonld').textContent = JSON.stringify(jsonld, null, 2);
+    }
+
+    function setLang(lang) {
+      // Translate static texts
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[lang] && dict[lang][key]) el.innerHTML = dict[lang][key];
+      });
+
+      // Update buttons state
+      localStorage.setItem('lang', lang);
+      langLabel.textContent = lang.toUpperCase();
+      langToggle.setAttribute('aria-pressed', lang === 'en');
+
+      // Update theme label language
+      const light = root.classList.contains('light');
+      themeLabel.textContent = light ? (lang === 'en' ? 'light' : 'clair') : (lang === 'en' ? 'dark' : 'sombre');
+
+      // Update meta + json-ld
+      setMeta(lang);
+
+      // Re-render projects with correct language
+      renderFilters();
+      renderProjects();
+    }
+
+    langToggle.addEventListener('click', () => {
+      const current = getLang();
+      setLang(current === 'fr' ? 'en' : 'fr');
+    });
+
+    // ---------------------------
+    // Projects rendering + filters (language aware)
+    // ---------------------------
+    const dataEl = document.getElementById('projects-data');
+    const projects = JSON.parse(dataEl.textContent);
+    const grid = document.getElementById('projectsGrid');
+    const filters = document.getElementById('filters');
+
+    const tags = [...new Set(projects.flatMap(p => p.tags))].sort();
+    let active = new Set();
+
+    function renderFilters() {
+      const lang = getLang();
+      filters.innerHTML = '';
+
+      const allBtn = document.createElement('button');
+      allBtn.className = 'filter-btn';
+      allBtn.textContent = (lang === 'en') ? 'All' : 'Tout';
+      allBtn.onclick = () => { active = new Set(); renderProjects(); renderFilters(); };
+      allBtn.setAttribute('aria-pressed', active.size === 0);
+      filters.appendChild(allBtn);
+
+      tags.forEach(tag => {
+        const b = document.createElement('button');
+        b.className = 'filter-btn';
+        b.textContent = tag;
+        b.setAttribute('aria-pressed', active.has(tag));
+        b.onclick = () => {
+          if (active.has(tag)) active.delete(tag); else active.add(tag);
+          renderProjects();
+          renderFilters();
+        };
+        filters.appendChild(b);
+      });
+    }
+
+    function renderProjects() {
+      const lang = getLang();
+      grid.innerHTML = '';
+
+      const filtered = active.size
+        ? projects.filter(p => p.tags.some(t => active.has(t)))
+        : projects;
+
+      filtered.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card span-6';
+
+        const title = document.createElement('h3');
+        title.textContent = (lang === 'en') ? p.title_en : p.title_fr;
+        card.appendChild(title);
+
+        const desc = document.createElement('p');
+        desc.textContent = (lang === 'en') ? p.desc_en : p.desc_fr;
+        card.appendChild(desc);
+
+        if (p.links && p.links.length) {
+          const linksWrap = document.createElement('div');
+          linksWrap.style.marginTop = '10px';
+
+          p.links.forEach(l => {
+            const a = document.createElement('a');
+            a.href = l.href;
+            a.textContent = '🔗 ' + ((lang === 'en') ? (l.label_en || l.label_fr || 'Link') : (l.label_fr || l.label_en || 'Lien'));
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'btn small';
+            a.style.marginRight = '10px';
+            linksWrap.appendChild(a);
+          });
+
+          card.appendChild(linksWrap);
+        }
+
+        const tagsWrap = document.createElement('div');
+        tagsWrap.className = 'tags';
+        p.tags.forEach(t => {
+          const span = document.createElement('span');
+          span.className = 'tag';
+          span.textContent = t;
+          tagsWrap.appendChild(span);
+        });
+        card.appendChild(tagsWrap);
+
+        grid.appendChild(card);
+      });
+    }
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // init
+    const initialLang = getLang();
+    setLang(initialLang);
+  </script>
+</body>
+</html>
